@@ -74,6 +74,14 @@
 (if (file-exists-p system-specific-config) (load system-specific-config))
 (if (file-exists-p user-specific-config) (load user-specific-config))
 (if (file-exists-p user-specific-dir)
-  (mapc #'load (directory-files user-specific-dir nil ".*el$")))
+    (mapc #'load (directory-files user-specific-dir nil ".*el$")))
+
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
+
+(require 'ac-slime)
+   (add-hook 'slime-mode-hook 'set-up-slime-ac)
+   (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
 ;;; init.el ends here
