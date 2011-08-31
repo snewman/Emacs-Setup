@@ -84,4 +84,7 @@
    (add-hook 'slime-mode-hook 'set-up-slime-ac)
    (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
+(require 'pymacs)
+(pymacs-load "ropemacs" "rope-")
+(setq default-tab-width 4)
 ;;; init.el ends here
